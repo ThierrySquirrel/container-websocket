@@ -9,4 +9,4 @@ ${AnsiColor.BRIGHT_GREEN}
      `\       /'
        `-._.-'
           `
-websocket version:1.2.0.0.RELEASE
+websocket version:1.2.0.1.RELEASE
