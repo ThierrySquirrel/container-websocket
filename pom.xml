@@ -5,25 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.thierrysquirrel</groupId>
-    <artifactId>websocket-spring-boot</artifactId>
+    <artifactId>container-websocket</artifactId>
     <packaging>pom</packaging>
-    <version>1.2.0.1-RELEASE</version>
+    <version>1.0.0.0-RELEASE</version>
 
-    <name>websocket-spring-boot</name>
-    <description>websocket-spring-boot</description>
-    <url>https://github.com/ThierrySquirrel/websocket-spring-boot</url>
+    <name>container-websocket</name>
+    <description>container-websocket</description>
+    <url>https://github.com/ThierrySquirrel/container-websocket</url>
 
     <modules>
-        <module>websocket-spring-boot-autoconfigure</module>
-        <module>websocket-spring-boot-starter</module>
+        <module>container-websocket-loading</module>
     </modules>
 
     <properties>
-        <java.version>11</java.version>
-        <spring-boot-starter.version>2.7.18</spring-boot-starter.version>
-        <lombok.version>1.18.42</lombok.version>
-        <guava.version>33.5.0-jre</guava.version>
-        <netty.version>4.2.10.Final</netty.version>
+        <java.version>25</java.version>
+        <netty.version>4.2.14.Final</netty.version>
+        <container.version>1.0.0.3-RELEASE</container.version>
+        <jellyfish.version>1.0.0.2-RELEASE</jellyfish.version>
         <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
         <maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
         <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
@@ -33,38 +31,23 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter</artifactId>
-                <version>${spring-boot-starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-configuration-processor</artifactId>
-                <version>${spring-boot-starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-codec-http</artifactId>
                 <version>${netty.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.thierrysquirrel</groupId>
-                <artifactId>websocket-spring-boot-autoconfigure</artifactId>
-                <version>${project.version}</version>
+                <artifactId>container</artifactId>
+                <version>${container.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.thierrysquirrel</groupId>
-                <artifactId>websocket-spring-boot-starter</artifactId>
+                <artifactId>jellyfish</artifactId>
+                <version>${jellyfish.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.thierrysquirrel</groupId>
+                <artifactId>container-websocket-loading</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
@@ -89,9 +72,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:https://github.com/ThierrySquirrel/websocket-spring-boot.git</connection>
-        <developerConnection>scm:git:https://github.com/ThierrySquirrel/websocket-spring-boot.git</developerConnection>
-        <url>https://github.com/ThierrySquirrel/websocket-spring-boot</url>
+        <connection>scm:git:https://github.com/ThierrySquirrel/container-websocket.git</connection>
+        <developerConnection>scm:git:https://github.com/ThierrySquirrel/container-websocket.git</developerConnection>
+        <url>https://github.com/ThierrySquirrel/container-websocket</url>
         <tag>v${project.version}</tag>
     </scm>
 
@@ -111,6 +94,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${maven-javadoc-plugin.version}</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
